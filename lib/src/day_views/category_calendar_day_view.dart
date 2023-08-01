@@ -290,8 +290,7 @@ List<TimeOfDay> getTimeList({
   final timeEnd = endOfDay ?? const TimeOfDay(hour: 23, minute: 0);
 
   final timeCount = ((timeEnd.hour * 60 + timeEnd.minute) - (startOfDay.hour * 60 + startOfDay.minute)) ~/ timeGap;
-  DateTime first = DateTime.parse(
-      "2012-02-27T${startOfDay.hour.toString().padLeft(2, '0')}:00");
+  DateTime first = DateTime.parse("2012-02-27T${startOfDay.hour.toString().padLeft(2, '0')}:${startOfDay.minute.toString().padLeft(2, '0')}");
   List<TimeOfDay> list = [];
   for (var i = 1; i <= timeCount; i++) {
     list.add(TimeOfDay.fromDateTime(first));
